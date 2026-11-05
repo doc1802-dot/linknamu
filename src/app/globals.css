@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
+/* 따뜻한 크림 → 살구 톤 단일 테마 */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdf8f1;
+  --foreground: #2b211c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--background);
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: var(--font-sans);
+  background:
+    radial-gradient(120% 60% at 50% 0%, #fffdf9 0%, rgb(255 253 249 / 0) 60%),
+    linear-gradient(170deg, #fdf8f1 0%, #fbeee2 45%, #f7dcc8 100%);
+  background-color: var(--background);
+  letter-spacing: -0.01em;
+  word-break: keep-all;
 }
