@@ -25,7 +25,7 @@ export const profile: Profile = {
     { id: "github", title: "깃허브", url: "https://github.com/doc1802-dot", icon: "github" },
     { id: "blog", title: "블로그", url: "https://blog.naver.com/doc1802", icon: "naver-blog" },
     { id: "brunch", title: "브런치", url: "https://brunch.co.kr/@doc1802", icon: "brunch" },
-    { id: "email", title: "이메일", url: "mailto:doc1802@gmail.com", emoji: "📧" },
+    { id: "email", title: "이메일", url: "https://mail.google.com/mail/?view=cm&fs=1&to=doc1802@gmail.com", emoji: "📧" },
   ],
 };
 

@@ -1,4 +1,4 @@
-import LinkCard from "@/components/LinkCard";
+import LinkList from "@/components/LinkList";
 import ProfileHeader from "@/components/ProfileHeader";
 import { profile } from "@/data/profile";
 
@@ -9,13 +9,7 @@ export default function Home() {
       <ProfileHeader name={profile.name} bio={profile.bio} image={profile.image} />
 
       <nav aria-label="링크 목록" className="mt-12 w-full">
-        <ul className="flex flex-col gap-4">
-          {profile.links.map((link) => (
-            <li key={link.id}>
-              <LinkCard link={link} />
-            </li>
-          ))}
-        </ul>
+        <LinkList links={profile.links} />
       </nav>
     </main>
   );

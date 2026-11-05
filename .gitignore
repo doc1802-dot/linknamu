@@ -34,6 +34,10 @@ yarn-error.log*
 .env*
 !.env.example
 
+# 인증 정보 원본 파일 (Atlas 인증 정보, Vercel 복구 코드)
+*credentials*.env
+*recovery-codes*.txt
+
 # vercel
 .vercel
 
