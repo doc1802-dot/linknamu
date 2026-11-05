@@ -19,7 +19,7 @@ export type Profile = {
 // id는 클릭 수 집계 키로 쓰이므로 한번 정하면 바꾸지 않는다.
 export const profile: Profile = {
   name: "김덕환",
-  bio: "살 빼려고 달리다가 코딩에 빠진 사람\n취미 : 개발, 러닝, 라이딩, 글쓰기, 와인, 커피 (순서는 그날 기분 순)",
+  bio: "살 빼려고 달리다가 코딩에 빠진 사람\n취미 : 개발, 러닝, 라이딩, 글쓰기, 와인, 커피\n(순서는 그날 기분 순)",
   image: "/profile-bike.jpg",
   links: [
     { id: "github", title: "깃허브", url: "https://github.com/doc1802-dot", icon: "github" },

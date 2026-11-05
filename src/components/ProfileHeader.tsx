@@ -22,7 +22,7 @@ export default function ProfileHeader({ name, bio, image }: Props) {
       </div>
       {/* 자간을 넓히면 마지막 글자 뒤에도 간격이 생겨 왼쪽에 같은 만큼 더해 가운데를 맞춘다 */}
       <h1 className="mt-7 pl-[0.2em] text-2xl font-bold tracking-[0.2em]">{name}</h1>
-      <p className="mt-3 whitespace-pre-line break-keep text-[15px] leading-relaxed text-foreground/65">
+      <p className="mt-3 whitespace-pre-line break-keep text-[14px] leading-relaxed sm:text-[15px] text-foreground/65">
         {bio}
       </p>
     </header>
