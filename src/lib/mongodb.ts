@@ -41,16 +41,20 @@ export async function incrementClick(linkId: string): Promise<boolean> {
   }
 }
 
-// 여러 링크의 클릭 수를 한 번의 쿼리로 가져온다. 기록이 없는 링크는 0.
-// MONGO_URL이 없거나 실패하면 null을 돌려준다.
-export async function getClickCounts(linkIds: string[]): Promise<Record<string, number> | null> {
+export type ClickStat = { count: number; updatedAt: Date | null };
+
+// 여러 링크의 클릭 수와 마지막 클릭 시각을 한 번의 쿼리로 가져온다. 기록이 없는 링크는 0.
+// MONGO_URL이 없거나 실패하면 null을 돌려준다. (관리자 페이지 전용)
+export async function getClickStats(linkIds: string[]): Promise<Record<string, ClickStat> | null> {
   try {
     const clicks = await getClicksCollection();
     if (!clicks) return null;
     const docs = await clicks.find({ _id: { $in: linkIds } }).toArray();
-    const counts = Object.fromEntries(linkIds.map((id) => [id, 0]));
-    for (const doc of docs) counts[doc._id] = doc.count;
-    return counts;
+    const stats: Record<string, ClickStat> = Object.fromEntries(
+      linkIds.map((id) => [id, { count: 0, updatedAt: null }]),
+    );
+    for (const doc of docs) stats[doc._id] = { count: doc.count, updatedAt: doc.updatedAt ?? null };
+    return stats;
   } catch (error) {
     console.error("[clicks] 클릭 수 조회 실패:", error);
     globalForMongo.mongoClientPromise = undefined;
