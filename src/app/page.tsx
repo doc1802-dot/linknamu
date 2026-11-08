@@ -15,7 +15,7 @@ export default function Home() {
       </Link>
 
       <main className="mx-auto flex w-full max-w-md flex-1 flex-col items-center px-7 pt-16 pb-16 sm:pt-24">
-        <ProfileHeader name={profile.name} bio={profile.bio} hobbies={profile.hobbies} image={profile.image} />
+        <ProfileHeader name={profile.name} bio={profile.bio} hobbies={profile.hobbies} image={profile.image} nameLink={profile.nameLink} />
 
         <nav aria-label="링크 목록" className="mt-12 w-full">
           <ul className="flex flex-col gap-4">

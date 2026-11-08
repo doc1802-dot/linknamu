@@ -14,6 +14,8 @@ export type Profile = {
   hobbies: string[];
   image: string;
   links: LinkItem[];
+  // 링크 카드 목록과 별도로 이름 옆에 작은 아이콘으로 보여주는 링크
+  nameLink?: LinkItem;
 };
 
 // 프로필과 링크 목록. 실제 정보로 바꿔서 사용한다.
@@ -29,8 +31,12 @@ export const profile: Profile = {
     { id: "brunch", title: "브런치", url: "https://brunch.co.kr/@doc1802", icon: "brunch" },
     { id: "email", title: "이메일", url: "https://mail.google.com/mail/?view=cm&fs=1&to=doc1802@gmail.com", emoji: "📧" },
   ],
+  nameLink: { id: "todo", title: "할 일 목록", url: "https://todo-orci-alpha.vercel.app" },
 };
 
+// 클릭 수 집계 대상이 되는 모든 링크 (카드 목록 + 이름 옆 링크)
+export const allLinks: LinkItem[] = profile.nameLink ? [...profile.links, profile.nameLink] : profile.links;
+
 export function findLink(id: string): LinkItem | undefined {
-  return profile.links.find((link) => link.id === id);
+  return allLinks.find((link) => link.id === id);
 }

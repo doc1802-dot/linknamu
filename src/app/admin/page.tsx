@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
-import { profile } from "@/data/profile";
+import { allLinks } from "@/data/profile";
 import { ADMIN_EMAIL, getAdminSession } from "@/lib/admin-session";
 import { getClickStats } from "@/lib/mongodb";
 
@@ -66,7 +66,7 @@ async function AdminContent({ searchParams }: Pick<PageProps<"/admin">, "searchP
     );
   }
 
-  const stats = await getClickStats(profile.links.map((link) => link.id));
+  const stats = await getClickStats(allLinks.map((link) => link.id));
   const total = stats ? Object.values(stats).reduce((sum, s) => sum + s.count, 0) : 0;
   const formatter = new Intl.DateTimeFormat("ko-KR", {
     dateStyle: "short",
@@ -86,7 +86,7 @@ async function AdminContent({ searchParams }: Pick<PageProps<"/admin">, "searchP
 
         {stats ? (
           <ul className="mt-4 divide-y divide-foreground/10">
-            {profile.links.map((link) => {
+            {allLinks.map((link) => {
               const stat = stats[link.id];
               return (
                 <li key={link.id} className="flex items-center justify-between gap-4 py-3">
