@@ -31,7 +31,7 @@ export const profile: Profile = {
     { id: "brunch", title: "브런치", url: "https://brunch.co.kr/@doc1802", icon: "brunch" },
     { id: "email", title: "이메일", url: "https://mail.google.com/mail/?view=cm&fs=1&to=doc1802@gmail.com", emoji: "📧" },
   ],
-  nameLink: { id: "todo", title: "할 일 목록", url: "https://todo-orci-alpha.vercel.app" },
+  nameLink: { id: "todo", title: "할 일 목록", url: "https://todo-orcin-alpha.vercel.app" },
 };
 
 // 클릭 수 집계 대상이 되는 모든 링크 (카드 목록 + 이름 옆 링크)
